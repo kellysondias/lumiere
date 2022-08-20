@@ -43,8 +43,6 @@ export const Movie = () => {
             setLoading(false)
         }
 
-        console.log("MOVIES", movie)
-
         fetchData()
     }, [])
 
