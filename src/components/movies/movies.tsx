@@ -8,16 +8,19 @@ import Spinner from 'react-bootstrap/Spinner';
 export const Movies:any = () => {
     const [movies, setMovies] = useState([])
     const [loading, setLoading] = useState(true)
+    const [page, setPage] = useState(1)
+    
+    const pageNumber = page >= 1 ? page : 1;
 
     useEffect(() => {
       async function fetchData() {
-          const list = await getMovies()
+          const list = await getMovies(page)
           setMovies(list.results)
           setLoading(false)
         }
 
       fetchData()  
-    }, [])
+    }, [page])
 
     
 
@@ -26,30 +29,42 @@ export const Movies:any = () => {
             {loading ? <Spinner animation="border" role="status" className='spinner'>
                             <span className="visually-hidden">Loading...</span>
                         </Spinner>  : 
-            [
-                <h2>Featured Movies:</h2>,
+                <>
+                    <h2>Featured Movies:</h2>
 
-                <MovieList>
-                    {movies.map((movie:any, index) =>  (
-                        <Link key={index} to={`/movie/${movie.id}`}>
-                            <MovieCard key={index}>
-                                <div>
-                                    <div className='poster'>
-                                        <img src={`${imgUrl}${movie.poster_path}`} alt={`${movie.title}'s poster`} />
-                                    </div>
-                                    <div className='info'>
-                                        <div className='rate'>
-                                            <i className='fa-solid fa-star'></i>
-                                            <span>{movie.vote_average}</span>
+                    <div className='page'>
+                        <i onClick={() => page > 1 && setPage(page - 1)} className="fa-solid fa-angle-left"></i>
+                        <span>{`Página ${pageNumber} de 10`}</span>
+                        <i onClick={() => page <= 10 && setPage(page + 1)} className="fa-solid fa-angle-right"></i>
+                    </div>
+    
+                    <MovieList>
+                        {movies.map((movie:any, index:number) =>  (
+                            <Link key={index} to={`/movie/${movie.id}`}>
+                                <MovieCard>
+                                    <div>
+                                        <div className='poster'>
+                                            <img src={`${imgUrl}${movie.poster_path}`} alt={`${movie.title}'s poster`} />
                                         </div>
-                                        <span className='title'>{movie.title}</span>
+                                        <div className='info'>
+                                            <div className='rate'>
+                                                <i className='fa-solid fa-star'></i>
+                                                <span>{movie.vote_average}</span>
+                                            </div>
+                                            <span className='title'>{movie.title}</span>
+                                        </div>
                                     </div>
-                                </div>
-                            </MovieCard>
-                        </Link>
-                        ))}
-                </MovieList>
-            ]
+                                </MovieCard>
+                            </Link>
+                            ))}
+                    </MovieList>
+
+                    <div className='page'>
+                        <i onClick={() => page > 1 && setPage(page - 1)} className="fa-solid fa-angle-left"></i>
+                        <span>{`Página ${pageNumber} de 10`}</span>
+                        <i onClick={() => page <= 10 && setPage(page + 1)} className="fa-solid fa-angle-right"></i>
+                    </div>
+                </>
             }
         </MovieSection>
     )
@@ -75,9 +90,26 @@ const MovieSection = styled.main`
         margin: 5rem auto;
     }
 
+    .page {
+        margin-bottom: 1rem;
+        font-size: 1.5rem;
+    }
+
+    .page i {
+        cursor: pointer;
+    }
+
+    .page span {
+        margin: 0 1rem;
+    }
+
     @media (max-width: 375px) {
         h2 {
             font-size: 2.5rem;
+        }
+
+        .page {
+            font.size: 1.7rem;
         }
     }
 `
@@ -87,6 +119,7 @@ const MovieList = styled.ul`
     flex-flow: row wrap;
     justify-content: center;
     align-items: center;
+    margin: 0 auto;
     width: 90%;
 `
 

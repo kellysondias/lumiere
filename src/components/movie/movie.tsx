@@ -81,8 +81,8 @@ export const Movie = () => {
                                 <div className="genres">
                                     <h2>Genres:</h2>
                                     <ul>
-                                        {movie.genres.map((genre:any) => (
-                                            <li>{genre.name}</li>
+                                        {movie.genres.map((genre:any, index:number) => (
+                                            <li key={index}>{genre.name}</li>
                                          ))}
                                     </ul>
                                 </div>
