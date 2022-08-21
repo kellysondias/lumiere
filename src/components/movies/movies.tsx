@@ -10,7 +10,7 @@ export const Movies:any = () => {
     const [loading, setLoading] = useState(true)
     const [page, setPage] = useState(1)
     
-    const pageNumber = page >= 1 ? page : 1;
+    const pageNumber = page >= 1 ? page : 1
 
     useEffect(() => {
       async function fetchData() {
@@ -60,9 +60,9 @@ export const Movies:any = () => {
                     </MovieList>
 
                     <div className='page'>
-                        <i onClick={() => page >= 1 && setPage(page - 1)} className="fa-solid fa-angle-left"></i>
-                        <span>{`Página ${pageNumber} de 11`}</span>
-                        <i onClick={() => page >= 10 && setPage(page + 1)} className="fa-solid fa-angle-right"></i>
+                        <i onClick={() => page > 1 && setPage(page - 1)} className="fa-solid fa-angle-left"></i>
+                        <span>{`Página ${pageNumber} de 10`}</span>
+                        <i onClick={() => page < 10 && setPage(page + 1)} className="fa-solid fa-angle-right"></i>
                     </div>
                 </>
             }
@@ -97,6 +97,11 @@ const MovieSection = styled.main`
 
     .page i {
         cursor: pointer;
+        transition: 0.2s ease-in-out;
+    }
+
+    .page i:hover {
+        color: #f5c518;
     }
 
     .page span {
