@@ -43,7 +43,7 @@ export const Movies:any = () => {
                         value={search}
                         onChange={(e) => setSearch(e.target.value)}
                     />
-
+                    
                     <div className='page-menu'>
                         <i 
                             onClick={() => page > 1 && setPage(page - 1)} 

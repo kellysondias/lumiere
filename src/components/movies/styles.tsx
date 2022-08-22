@@ -5,6 +5,7 @@ export const MoviesSection = styled.main`
     flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
+    width: 90%;
     margin: 0 auto;
     background-color: #000;
     color: #fff;
@@ -68,7 +69,6 @@ export const MovieList = styled.ul`
     justify-content: center;
     align-items: center;
     margin: 0 auto;
-    width: 90%;
 `
 
 export const MovieCard = styled.li`
