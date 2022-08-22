@@ -25,6 +25,12 @@ export const FooterSection = styled.footer`
         color: #f6c600;
         text-decoration: none;
     }
+
+    @media (max-width: 511px) {
+        div  {
+            left: 15px;
+        }
+    }
 `
 
 export const Icons = styled.ul`

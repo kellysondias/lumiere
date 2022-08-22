@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const MovieSection = styled.main`
+export const MoviesSection = styled.main`
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
@@ -16,35 +16,48 @@ export const MovieSection = styled.main`
         font-weight: 500;
     }
 
-    .spinner {
-        margin: 5rem auto;
+    #search-bar {
+        outline: none;
+        max-width: 300px;
+        width: 80%;
+        margin-left: 1.1rem;
+        margin-bottom: 1rem;
+        font-size: 1.5rem;
+        padding: 0.5rem 1.5rem;
+        transition: 0.2s ease-in-out;
+        border: 0.2rem solid #000;
+        border-radius: 5px;
     }
 
-    .page {
+    #search-bar:focus {
+        border-color: #f5c518;
+    }
+    
+    .page-menu {
         margin-bottom: 1rem;
         font-size: 1.5rem;
     }
 
-    .page i {
+    .page-menu i {
         cursor: pointer;
         transition: 0.2s ease-in-out;
     }
 
-    .page i:hover {
+    .page-menu i:hover {
         color: #f5c518;
     }
 
-    .page span {
+    .page-menu span {
         margin: 0 1rem;
+    }
+
+    .spinner {
+        margin: 5rem auto;
     }
 
     @media (max-width: 375px) {
         h2 {
             font-size: 2.5rem;
-        }
-
-        .page {
-            font.size: 1.7rem;
         }
     }
 `

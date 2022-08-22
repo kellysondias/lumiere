@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { imgUrl } from '../../services/variables';
 import { Link } from 'react-router-dom'
 import { Footer } from '../footer/footer';
-import { MovieSection, MovieList, MovieCard } from './styles';
+import { MoviesSection, MovieList, MovieCard } from './styles';
 import '../../css/font-awesome-min.css'
 import Spinner from 'react-bootstrap/Spinner';
 
@@ -28,7 +28,7 @@ export const Movies:any = () => {
         filter((movie:any) => movie.title.toLowerCase().includes(lowerSearch))
 
     return (
-        <MovieSection>
+        <MoviesSection>
             {loading ? <Spinner animation="border" role="status" className='spinner'>
                             <span className="visually-hidden">Loading...</span>
                         </Spinner>  : 
@@ -44,7 +44,7 @@ export const Movies:any = () => {
                         onChange={(e) => setSearch(e.target.value)}
                     />
 
-                    <div className='page'>
+                    <div className='page-menu'>
                         <i 
                             onClick={() => page > 1 && setPage(page - 1)} 
                             className="fa-solid fa-angle-left">
@@ -77,7 +77,7 @@ export const Movies:any = () => {
                             ))}
                     </MovieList>
 
-                    <div className="page">
+                    <div className="page-menu">
                         <i 
                             onClick={() => page > 1 && setPage(page - 1)} 
                             className="fa-solid fa-angle-left">
@@ -92,6 +92,6 @@ export const Movies:any = () => {
                     <Footer />
                 </>
             }
-        </MovieSection>
+        </MoviesSection>
     )
 }
