@@ -11,9 +11,6 @@ function App() {
     <>
       <GlobalStyle />
       <AppRoutes />
-      {/* <Header />
-      <Movies />
-      <Footer /> */}
     </>
   );
 }
