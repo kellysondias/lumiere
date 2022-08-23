@@ -4,11 +4,12 @@ import { imgUrl } from '../../services/variables';
 import { Link } from 'react-router-dom'
 import { Footer } from '../footer/footer';
 import { MoviesSection, MovieList, MovieCard } from './styles';
+import { IMovies } from "../../interfaces/interfaces"
 import Spinner from 'react-bootstrap/Spinner';
 import '../../css/font-awesome-min.css'
 
-export const Movies:any = () => {
-    const [movies, setMovies] = useState([])
+export const Movies:React.FC = () => {
+    const [movies, setMovies] = useState<IMovies[]>([])
     const [loading, setLoading] = useState(true)
     const [page, setPage] = useState(1)
     const [search, setSearch] = useState('')
@@ -25,7 +26,7 @@ export const Movies:any = () => {
 
     const lowerSearch = search.toLowerCase()
     const movieSearch = movies.
-        filter((movie:any) => movie.title.toLowerCase().includes(lowerSearch))
+        filter((movie) => movie.title.toLowerCase().includes(lowerSearch))
 
     return (
         <MoviesSection>
@@ -57,7 +58,7 @@ export const Movies:any = () => {
                     </div>
     
                     <MovieList>
-                        {movieSearch.map((movie:any, index:number) =>  (
+                        {movieSearch.map((movie, index) =>  (
                             <Link key={index} to={`/movie/${movie.id}`}>
                                 <MovieCard>
                                     <div>

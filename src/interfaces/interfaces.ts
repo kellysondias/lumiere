@@ -1,3 +1,10 @@
+export interface IMovies {
+    id: string;
+    poster_path:string;
+    title: string;
+    vote_average:number;
+}
+
 export interface IMovie {
     genres:IGenres[];
     plot:string;
@@ -9,8 +16,6 @@ export interface IMovie {
 }
 
 export interface IGenres {
-    genres: {
-        id:string;
-        name:string;
-    }
+    id:string;
+    name:string;
 }

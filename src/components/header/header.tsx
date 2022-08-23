@@ -2,7 +2,7 @@ import icon from "../../assets/img/portfolio-icon.png"
 import { HeaderSection } from "./styles"
 import { Link } from "react-router-dom"
 
-export const Header = () => {
+export const Header:React.FC = () => {
     return (
         <HeaderSection>
             <Link to="/">

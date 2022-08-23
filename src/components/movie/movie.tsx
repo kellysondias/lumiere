@@ -8,7 +8,7 @@ import { IMovie } from "../../interfaces/interfaces"
 import Spinner from 'react-bootstrap/Spinner';
 import '../../css/font-awesome-min.css'
 
-export const Movie = () => { 
+export const Movie:React.FC = () => { 
     const [movie, setMovie] = useState<IMovie>({
                 genres: [],
                 plot: '',
@@ -39,7 +39,7 @@ export const Movie = () => {
         fetchData()
     }, [])
 
-    console.log(movie)
+    console.log("GENRES:",movie.genres)
 
     return (
         <MovieSection>
@@ -77,7 +77,7 @@ export const Movie = () => {
                                     <div className="genres">
                                         <h2>Genres:</h2>
                                         <ul>
-                                            {movie.genres.map((genre:any, index:number) => (
+                                            {movie.genres.map((genre, index) => (
                                                 <li key={index}>{genre.name}</li>
                                              ))}
                                         </ul>

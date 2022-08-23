@@ -1,7 +1,7 @@
 import '../../css/font-awesome-min.css'
 import { FooterSection, Icons } from './styles'
 
-export const Footer = () => {
+export const Footer:React.FC = () => {
     return (
         <FooterSection>
             <Icons>
