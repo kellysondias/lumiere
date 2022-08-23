@@ -38,7 +38,7 @@ export const Movies:any = () => {
                     <input 
                         type="text"
                         name="search"
-                        placeholder="Search a trending movie..."
+                        placeholder="Search a trending movie on this page..."
                         id="search-bar" 
                         value={search}
                         onChange={(e) => setSearch(e.target.value)}
