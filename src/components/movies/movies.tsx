@@ -42,7 +42,7 @@ export const Movies:React.FC = () => {
                         placeholder="Search a trending movie on this page..."
                         id="search-bar" 
                         value={search}
-                        onChange={(e) => setSearch(e.target.value)}
+                        onChange={(e:any) => setSearch(e.target.value)}
                     />
                     
                     <div className='page-menu'>

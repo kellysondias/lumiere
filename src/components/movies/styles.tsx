@@ -25,7 +25,6 @@ export const MoviesSection = styled.main`
         margin-bottom: 1rem;
         font-size: 1.5rem;
         padding: 0.5rem 1.5rem;
-        transition: 0.2s ease-in-out;
         border: 0.2rem solid #000;
         border-radius: 5px;
     }
