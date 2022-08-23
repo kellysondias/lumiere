@@ -36,7 +36,6 @@ export const MoviesSection = styled.main`
     
     .page-menu {
         margin-bottom: 1rem;
-        margin-left: 2.1rem;
         font-size: 1.5rem;
     }
 
@@ -55,6 +54,12 @@ export const MoviesSection = styled.main`
 
     .spinner {
         margin: 5rem auto;
+    }
+
+    @media (max-width: 511px) {
+        .page-menu {
+            margin-left: 2.1rem;
+        }
     }
 
     @media (max-width: 375px) {
