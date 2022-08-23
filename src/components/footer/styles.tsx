@@ -3,33 +3,19 @@ import styled from 'styled-components'
 export const FooterSection = styled.footer`
     display: flex;
     position: relative;
-    flex-flow: column nowrap:
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
     margin: 0.7rem auto;
 
     div {
-        position: absolute;
-        left: 0;
-        right: 0;
-        top: 4rem;
-        margin: 10px auto;
-    }
-
-    div span {
-        padding: 1.2rem auto;
+        margin: 0.2rem auto;
     }
 
     div span a {
         color: #f6c600;
         text-decoration: none;
-    }
-
-    @media (max-width: 511px) {
-        div  {
-            left: 15px;
-        }
     }
 `
 

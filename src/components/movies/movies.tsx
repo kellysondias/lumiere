@@ -4,8 +4,8 @@ import { imgUrl } from '../../services/variables';
 import { Link } from 'react-router-dom'
 import { Footer } from '../footer/footer';
 import { MoviesSection, MovieList, MovieCard } from './styles';
-import '../../css/font-awesome-min.css'
 import Spinner from 'react-bootstrap/Spinner';
+import '../../css/font-awesome-min.css'
 
 export const Movies:any = () => {
     const [movies, setMovies] = useState([])

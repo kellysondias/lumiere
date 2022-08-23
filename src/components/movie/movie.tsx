@@ -4,25 +4,16 @@ import { useParams } from "react-router-dom";
 import { imgUrl } from "../../services/variables";
 import { Footer } from "../footer/footer";
 import { MovieSection, MoviePage } from "./styles";
+import { IMovie } from "../../interfaces/interfaces"
 import Spinner from 'react-bootstrap/Spinner';
 import '../../css/font-awesome-min.css'
 
-export const Movie = () => {
-    interface movieTypes {
-        genres:any;
-        plot:string;
-        posterLink:string;
-        rate:any;
-        releaseDate:string;
-        tagLine: string;
-        title:string;
-    }
-    
-    const [movie, setMovie] = useState<movieTypes>({
-                genres: '',
+export const Movie = () => { 
+    const [movie, setMovie] = useState<IMovie>({
+                genres: [],
                 plot: '',
                 posterLink: '',
-                rate: '',
+                rate: 0,
                 releaseDate: '',
                 tagLine: '',
                 title: '',
@@ -47,6 +38,8 @@ export const Movie = () => {
 
         fetchData()
     }, [])
+
+    console.log(movie)
 
     return (
         <MovieSection>

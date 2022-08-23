@@ -36,6 +36,7 @@ export const MoviesSection = styled.main`
     
     .page-menu {
         margin-bottom: 1rem;
+        margin-left: 2.1rem;
         font-size: 1.5rem;
     }
 
