@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const MoviesSection = styled.main`
+export const MoviesPage = styled.main`
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
@@ -20,9 +20,9 @@ export const MoviesSection = styled.main`
     #search-bar {
         outline: none;
         max-width: 300px;
+        margin-bottom: 1rem;
         width: 80%;
         margin-left: 1.1rem;
-        margin-bottom: 1rem;
         font-size: 1.5rem;
         padding: 0.5rem 1.5rem;
         border: 0.2rem solid #000;
@@ -32,9 +32,31 @@ export const MoviesSection = styled.main`
     #search-bar:focus {
         border-color: #f5c518;
     }
-    
+
+    .spinner {
+        margin: 5rem auto;
+    }
+
+    @media (max-width: 511px) {
+        #search-bar {
+            text-align: center;
+        }
+    }
+
+    @media (max-width: 375px) {
+        h2 {
+            font-size: 2.5rem;
+        }
+    }
+`
+
+export const MoviesSection = styled.section`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
     .page-menu {
-        margin-bottom: 1rem;
+        margin: 0 auto 1rem auto;
         font-size: 1.5rem;
     }
 
@@ -51,35 +73,26 @@ export const MoviesSection = styled.main`
         margin: 0 1rem;
     }
 
-    .spinner {
-        margin: 5rem auto;
+    ul {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
     }
 
     @media (max-width: 511px) {
         .page-menu {
-            margin-left: 2.1rem;
+            margin-left: 17.7rem;
         }
     }
-
-    @media (max-width: 375px) {
-        h2 {
-            font-size: 2.5rem;
-        }
-    }
-`
-
-export const MovieList = styled.ul`
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
-    align-items: center;
-    margin: 0 auto;
 `
 
 export const MovieCard = styled.li`
     width: 200px;
     margin: 0 1rem 1rem 1rem;
     background-color: #1a1a1a;
+    list-style: none;
 
     .poster img {
         width: 100%;
@@ -94,7 +107,7 @@ export const MovieCard = styled.li`
         margin-bottom: 0.5rem;
     }
 
-    .info .rate i {
+    i {
         color: #f5c518;
         margin-right: 0.5rem;
     }

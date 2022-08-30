@@ -6,8 +6,14 @@ export const getMovies = async (page:number) => {
     return json
 }
 
-export const getMovie = async (id:string) => {
+export const getMovie = async (id:any) => {
     const url = await fetch(`${baseUrl}/movie/${id}?api_key=${key}`)
+    const json = await url.json()
+    return json
+}
+
+export const getMovieSearch = async (page:number, search:string) => {
+    const url = await fetch(`${baseUrl}/search/movie?api_key=${key}&page=${page}&query=${search}`)
     const json = await url.json()
     return json
 }
