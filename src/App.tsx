@@ -1,8 +1,5 @@
 import React from 'react';
 import './App.css';
-import { Header } from './components/header/header';
-import { Movies } from './components/movies/movies';
-import { Footer } from './components/footer/footer';
 import { createGlobalStyle } from 'styled-components';
 import { AppRoutes } from '../src/pages/routes'
 

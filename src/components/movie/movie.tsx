@@ -18,6 +18,7 @@ export const Movie:React.FC = () => {
                 tagLine: '',
                 title: '',
     })
+    
     const [loading, setLoading] = useState(true)
     const { id } = useParams()
 

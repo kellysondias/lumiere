@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const MovieSection = styled.section`
     display: flex;
-    flex-flow: row wrap;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     margin: 1.3rem auto;

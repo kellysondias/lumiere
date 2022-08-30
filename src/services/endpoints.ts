@@ -1,12 +1,12 @@
 import { baseUrl, key } from "./variables"
 
-export const getMovies = async (page:any) => {
+export const getMovies = async (page:number) => {
     const url = await fetch(`${baseUrl}/trending/movie/week?api_key=${key}&page=${page}`)
     const json = await url.json()
     return json
 }
 
-export const getMovie = async (id:any) => {
+export const getMovie = async (id:string) => {
     const url = await fetch(`${baseUrl}/movie/${id}?api_key=${key}`)
     const json = await url.json()
     return json
