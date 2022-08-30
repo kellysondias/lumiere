@@ -80,12 +80,6 @@ export const MoviesSection = styled.section`
         align-items: center;
         margin: 0 auto;
     }
-
-    @media (max-width: 511px) {
-        .page-menu {
-            margin-left: 17.7rem;
-        }
-    }
 `
 
 export const MovieCard = styled.li`
