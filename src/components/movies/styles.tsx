@@ -78,7 +78,13 @@ export const MoviesSection = styled.section`
         flex-flow: row wrap;
         justify-content: center;
         align-items: center;
+        padding: 0;
         margin: 0 auto;
+    }
+
+    .unfound {
+        margin: 1.7rem auto;
+        font-size: 1.1rem;
     }
 `
 
