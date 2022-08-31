@@ -95,7 +95,7 @@ export const Movies:React.FC = () => {
                             </>
                              : <ul>
                                     {
-                                        movieSearch === undefined ? <span>lel</span> : movieSearch.map((movie, index) =>  (
+                                        movieSearch.length === 0 ? <span>lel</span> : movieSearch.map((movie, index) =>  (
                                             <Link key={index} to={`/movie/${movie.id}`}>
                                                 <MovieCard>
                                                     <div>
