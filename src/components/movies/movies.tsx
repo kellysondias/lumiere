@@ -75,15 +75,15 @@ export const Movies:React.FC = () => {
                                     <Link key={index} to={`/movie/${movie.id}`}>
                                         <MovieCard>
                                             <div>
-                                                <div className='poster'>
+                                                <div>
                                                     <img src={`${imgUrl}${movie.poster_path}`} alt={`${movie.title}'s poster`} />
                                                 </div>
-                                                <div className='info'>
-                                                    <div className='rate'>
+                                                <div>
+                                                    <div>
                                                         <i className='fa-solid fa-star'></i>
                                                         <span>{movie.vote_average}</span>
                                                     </div>
-                                                    <span className='title'>{movie.title}</span>
+                                                    <span>{movie.title}</span>
                                                 </div>
                                             </div>
                                         </MovieCard>
@@ -95,19 +95,19 @@ export const Movies:React.FC = () => {
                             </>
                              : <ul>
                                     {
-                                        movieSearch.map((movie, index) =>  (
-                                                movie === undefined ? <span>Lel</span> :     <Link key={index} to={`/movie/${movie.id}`}>
+                                        movieSearch === undefined ? <span>lel</span> : movieSearch.map((movie, index) =>  (
+                                            <Link key={index} to={`/movie/${movie.id}`}>
                                                 <MovieCard>
                                                     <div>
-                                                        <div className='poster'>
+                                                        <div>
                                                             <img src={`${imgUrl}${movie.poster_path}`} alt={`${movie.title}'s poster`} />
                                                         </div>
-                                                        <div className='info'>
-                                                            <div className='rate'>
+                                                        <div>
+                                                            <div>
                                                                 <i className='fa-solid fa-star'></i>
                                                                 <span>{movie.vote_average}</span>
                                                             </div>
-                                                            <span className='title'>{movie.title}</span>
+                                                            <span>{movie.title}</span>
                                                         </div>
                                                     </div>
                                                 </MovieCard>
