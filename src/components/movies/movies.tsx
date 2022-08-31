@@ -32,6 +32,7 @@ export const Movies:React.FC = () => {
     }, [page, search]) 
 
     console.log("MOVIE SEARCH", movieSearch)
+    console.log("MOVIE LIST", movies)
 
     const lowerSearch = search.toLowerCase()
     const movieSearchh = movies.
