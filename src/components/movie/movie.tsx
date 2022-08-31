@@ -40,8 +40,6 @@ export const Movie:React.FC = () => {
         fetchData()
     }, [])
 
-    console.log("GENRES:",movie.genres)
-
     return (
         <MovieSection>
             {loading ? <Spinner animation="border" role="status" className='spinner'>
