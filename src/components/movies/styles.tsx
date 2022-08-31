@@ -33,6 +33,24 @@ export const MoviesPage = styled.main`
         border-color: #f5c518;
     }
 
+    .page-menu {
+        margin: 0 auto 1rem auto;
+        font-size: 1.5rem;
+    }
+
+    .page-menu i {
+        cursor: pointer;
+        transition: 0.2s ease-in-out;
+    }
+
+    .page-menu i:hover {
+        color: #f5c518;
+    }
+
+    .page-menu span {
+        margin: 0 1rem;
+    }
+
     .spinner {
         margin: 5rem auto;
     }
@@ -54,24 +72,6 @@ export const MoviesSection = styled.section`
     display: flex;
     flex-direction: column;
     justify-content: center;
-
-    .page-menu {
-        margin: 0 auto 1rem auto;
-        font-size: 1.5rem;
-    }
-
-    .page-menu i {
-        cursor: pointer;
-        transition: 0.2s ease-in-out;
-    }
-
-    .page-menu i:hover {
-        color: #f5c518;
-    }
-
-    .page-menu span {
-        margin: 0 1rem;
-    }
 
     ul {
         display: flex;

@@ -54,20 +54,21 @@ export const Movies:React.FC = () => {
                         onChange={(e) => setSearch(e.target.value)}
                     />
 
+                    <div className='page-menu'>
+                        <i 
+                            onClick={() => page > 1 && setPage(page - 1)} 
+                            className="fa-solid fa-angle-left">
+                        </i>
+                        <span>{`Page ${page} of 10`}</span>
+                        <i 
+                            onClick={() => page < 10 && setPage(page + 1)} 
+                            className="fa-solid fa-angle-right">
+                        </i>
+                    </div>
+
                     <MoviesSection>
                         {movieSearch === undefined ? 
                             <>
-                                <div className='page-menu'>
-                                    <i 
-                                        onClick={() => page > 1 && setPage(page - 1)} 
-                                        className="fa-solid fa-angle-left">
-                                    </i>
-                                    <span>{`Page ${page} of 10`}</span>
-                                    <i 
-                                        onClick={() => page < 10 && setPage(page + 1)} 
-                                        className="fa-solid fa-angle-right">
-                                    </i>
-                                </div>
 
                                 <ul>
                                     {movies.map((movie, index) =>  (
@@ -90,22 +91,12 @@ export const Movies:React.FC = () => {
                                     ))}
                                 </ul>
 
-                                <div className="page-menu">
-                                    <i 
-                                        onClick={() => page > 1 && setPage(page - 1)} 
-                                        className="fa-solid fa-angle-left">
-                                    </i>
-                                    <span>{`Page ${page} of 10`}</span>
-                                    <i 
-                                        onClick={() => page < 10 && setPage(page + 1)} 
-                                        className="fa-solid fa-angle-right">
-                                    </i>
-                                </div>
+
                             </>
                              : <ul>
                                     {
                                         movieSearch.map((movie, index) =>  (
-                                            <Link key={index} to={`/movie/${movie.id}`}>
+                                                movie === undefined ? <span>Lel</span> :     <Link key={index} to={`/movie/${movie.id}`}>
                                                 <MovieCard>
                                                     <div>
                                                         <div className='poster'>
@@ -126,6 +117,18 @@ export const Movies:React.FC = () => {
                               </ul>
                         }
                     </MoviesSection>
+
+                    <div className='page-menu'>
+                        <i 
+                            onClick={() => page > 1 && setPage(page - 1)} 
+                            className="fa-solid fa-angle-left">
+                        </i>
+                        <span>{`Page ${page} of 10`}</span>
+                        <i 
+                            onClick={() => page < 10 && setPage(page + 1)} 
+                            className="fa-solid fa-angle-right">
+                        </i>
+                    </div>
 
                     <Footer />
                 </>
