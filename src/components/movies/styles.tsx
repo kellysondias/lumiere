@@ -88,15 +88,16 @@ export const MovieCard = styled.li`
     background-color: #1a1a1a;
     list-style: none;
 
-    .poster img {
+    img {
         width: 100%;
+        display: none;
     }
 
-    .info {
+    div div:last-child {
         padding: 10px;
     }
 
-    .info .rate {
+    div div:last-child div {
         font-size: 1.2rem;
         margin-bottom: 0.5rem;
     }
@@ -106,7 +107,7 @@ export const MovieCard = styled.li`
         margin-right: 0.5rem;
     }
 
-    .info .title {
+    div div:last-child span {
         font-size: 1.6rem;
     }
 
