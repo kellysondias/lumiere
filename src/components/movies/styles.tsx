@@ -90,7 +90,6 @@ export const MovieCard = styled.li`
 
     img {
         width: 100%;
-        display: none;
     }
 
     div div:last-child {
