@@ -48,7 +48,7 @@ export const Movies:React.FC = () => {
                     <input 
                         type="text"
                         name="search"
-                        placeholder="Search a trending movie..."
+                        placeholder="Search a movie..."
                         id="search-bar" 
                         value={search}
                         onChange={(e) => setSearch(e.target.value)}
