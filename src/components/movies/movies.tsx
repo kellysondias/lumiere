@@ -31,13 +31,6 @@ export const Movies:React.FC = () => {
       fetchMovieSearch()
     }, [page, search]) 
 
-    console.log("MOVIE SEARCH", movieSearch)
-    console.log("MOVIE LIST", movies)
-
-    const lowerSearch = search.toLowerCase()
-    const movieSearchh = movies.
-        filter((movie) => movie.title.toLowerCase().includes(lowerSearch))
-
     return (
         <MoviesPage>
             {loading ? <Spinner animation="border" role="status" className='spinner'>
@@ -71,7 +64,11 @@ export const Movies:React.FC = () => {
                         {movieSearch === undefined ? 
                             <>
                                 <ul>
-                                    {movies.map((movie, index) =>  (
+                                    {movies.length === 0 ?
+                                    <Spinner animation="border" role="status" className='spinner'>
+                                        <span className="visually-hidden">Loading...</span>
+                                    </Spinner> : 
+                                    movies.map((movie, index) =>  (
                                     <Link key={index} to={`/movie/${movie.id}`}>
                                         <MovieCard>
                                             <div>
