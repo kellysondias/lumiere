@@ -64,10 +64,7 @@ export const Movies:React.FC = () => {
                         {movieSearch === undefined ? 
                             <>
                                 <ul>
-                                    {movies.length === 0 ?
-                                    <Spinner animation="border" role="status" className='spinner'>
-                                        <span className="visually-hidden">Loading...</span>
-                                    </Spinner> : 
+                                    { 
                                     movies.map((movie, index) =>  (
                                     <Link key={index} to={`/movie/${movie.id}`}>
                                         <MovieCard>
@@ -92,7 +89,7 @@ export const Movies:React.FC = () => {
                             </>
                              : <ul>
                                     {
-                                        movieSearch.length === 0 ? <span>No movies found :(</span> : movieSearch.map((movie, index) =>  (
+                                        movieSearch.length === 0 && movies.length > 0 ? <span>No movies found :(</span> : movieSearch.map((movie, index) =>  (
                                             <Link key={index} to={`/movie/${movie.id}`}>
                                                 <MovieCard>
                                                     <div>
