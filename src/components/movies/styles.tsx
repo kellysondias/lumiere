@@ -17,6 +17,11 @@ export const MoviesPage = styled.main`
         font-weight: 500;
     }
 
+    p {
+        font-size: 1.5rem;
+        text-align: center;
+    }
+
     #search-bar {
         outline: none;
         max-width: 300px;
@@ -31,24 +36,6 @@ export const MoviesPage = styled.main`
 
     #search-bar:focus {
         border-color: #f5c518;
-    }
-
-    .page-menu {
-        margin: 0 auto 1rem auto;
-        font-size: 1.5rem;
-    }
-
-    .page-menu i {
-        cursor: pointer;
-        transition: 0.2s ease-in-out;
-    }
-
-    .page-menu i:hover {
-        color: #f5c518;
-    }
-
-    .page-menu span {
-        margin: 0 1rem;
     }
 
     .spinner {
@@ -84,7 +71,7 @@ export const MoviesSection = styled.section`
 
     .unfound {
         margin: 1.7rem auto;
-        font-size: 1.1rem;
+        font-size: 1.5rem;
     }
 `
 

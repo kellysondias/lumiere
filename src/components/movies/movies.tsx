@@ -50,6 +50,8 @@ export const Movies: React.FC = () => {
 				<>
 					<h2>Featured Movies:</h2>
 
+					<p>Here you can find all of the movies in our database organized by what's recently trending among movie goers 😉 .</p>
+
 					<input
 						type='text'
 						placeholder='Search a movie...'
@@ -57,19 +59,6 @@ export const Movies: React.FC = () => {
 						value={search}
 						onChange={e => setSearch(e.target.value)}
 					/>
-
-					<PageMenu page={page} setPage={setPage} totalPages={totalPages} />
-
-					{/* <div className='page-menu'>
-						<i
-							onClick={() => page > 1 && setPage(page - 1)}
-							className='fa-solid fa-angle-left'></i>
-						<span>{`Page ${page} of ${totalPages}`}</span>
-
-						<i
-							onClick={() => page < totalPages && setPage(page + 1)}
-							className='fa-solid fa-angle-right'></i>
-					</div> */}
 
 					<MoviesSection>
 						<ul>
@@ -103,15 +92,11 @@ export const Movies: React.FC = () => {
 						</ul>
 					</MoviesSection>
 
-					<div className='page-menu'>
-						<i
-							onClick={() => page > 1 && setPage(page - 1)}
-							className='fa-solid fa-angle-left'></i>
-						<span>{`Page ${page} of ${totalPages}`}</span>
-						<i
-							onClick={() => page < totalPages && setPage(page + 1)}
-							className='fa-solid fa-angle-right'></i>
-					</div>
+					<PageMenu 
+						page={page} 
+						setPage={setPage} 
+						totalPages={totalPages} 
+					/>
 
 					<Footer />
 				</>
