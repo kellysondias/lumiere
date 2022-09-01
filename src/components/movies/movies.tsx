@@ -1,40 +1,41 @@
-import { getMovies, getMovieSearch } from '../../services/endpoints';
-import { useState, useEffect } from 'react';
-import { imgUrl } from '../../services/variables';
-import { Link } from 'react-router-dom';
-import { Footer } from '../footer/footer';
-import { MoviesPage, MoviesSection, MovieCard } from './styles';
-import { IMovies } from '../../interfaces/interfaces';
-import Spinner from 'react-bootstrap/Spinner';
-import '../../css/font-awesome-min.css';
+import { getMovies, getMovieSearch } from '../../services/endpoints'
+import { useState, useEffect } from 'react'
+import { imgUrl } from '../../services/variables'
+import { Link } from 'react-router-dom'
+import { Footer } from '../footer/footer'
+import { MoviesPage, MoviesSection, MovieCard } from './styles'
+import { IMovies } from '../../interfaces/interfaces'
+import Spinner from 'react-bootstrap/Spinner'
+import '../../css/font-awesome-min.css'
+import { PageMenu } from '../page-menu/page-menu'
 
 export const Movies: React.FC = () => {
-	const [movies, setMovies] = useState<IMovies[]>([]);
-	const [loading, setLoading] = useState(true);
-	const [page, setPage] = useState(1);
-	const [totalPages, setTotalPages] = useState(1);
-	const [search, setSearch] = useState('');
+	const [movies, setMovies] = useState<IMovies[]>([])
+	const [loading, setLoading] = useState(true)
+	const [page, setPage] = useState(1)
+	const [totalPages, setTotalPages] = useState(1)
+	const [search, setSearch] = useState('')
 
 	useEffect(() => {
         async function fetchMovies() {
-			const list = await getMovies(page);
-			setMovies(list.results);
-			setLoading(false);
-			setTotalPages(list.total_pages);
+			const list = await getMovies(page)
+			setMovies(list.results)
+			setLoading(false)
+			setTotalPages(list.total_pages)
 		}
 
 		async function fetchMovieSearch() {
-			const searchResponse = await getMovieSearch(page, search);
-			setMovies(searchResponse.results);
-			setTotalPages(searchResponse.total_pages);
+			const searchResponse = await getMovieSearch(page, search)
+			setMovies(searchResponse.results)
+			setTotalPages(searchResponse.total_pages)
 		}
 
-		fetchMovies();
-		if (search !== '') fetchMovieSearch();
+		fetchMovies()
+		if (search !== '') fetchMovieSearch()
 		
-        if(page > totalPages) setPage(1);
+        if(page > totalPages) setPage(1)
         
-	}, [page, search]);
+	}, [page, search])
 
 	return (
 		<MoviesPage>
@@ -57,7 +58,9 @@ export const Movies: React.FC = () => {
 						onChange={e => setSearch(e.target.value)}
 					/>
 
-					<div className='page-menu'>
+					<PageMenu page={page} setPage={setPage} totalPages={totalPages} />
+
+					{/* <div className='page-menu'>
 						<i
 							onClick={() => page > 1 && setPage(page - 1)}
 							className='fa-solid fa-angle-left'></i>
@@ -66,7 +69,7 @@ export const Movies: React.FC = () => {
 						<i
 							onClick={() => page < totalPages && setPage(page + 1)}
 							className='fa-solid fa-angle-right'></i>
-					</div>
+					</div> */}
 
 					<MoviesSection>
 						<ul>
@@ -114,5 +117,5 @@ export const Movies: React.FC = () => {
 				</>
 			)}
 		</MoviesPage>
-	);
-};
+	)
+}
