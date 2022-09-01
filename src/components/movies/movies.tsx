@@ -23,16 +23,16 @@ export const Movies: React.FC = () => {
 			setTotalPages(list.total_pages);
 		}
 
-		fetchMovies();
-
 		async function fetchMovieSearch() {
 			const searchResponse = await getMovieSearch(page, search);
 			setMovies(searchResponse.results);
 			setTotalPages(searchResponse.total_pages);
 		}
 
-        if(page > totalPages) setPage(1);
+		fetchMovies();
 		if (search !== '') fetchMovieSearch();
+		
+        if(page > totalPages) setPage(1);
         
 	}, [page, search]);
 
@@ -51,7 +51,6 @@ export const Movies: React.FC = () => {
 
 					<input
 						type='text'
-						name='search'
 						placeholder='Search a movie...'
 						id='search-bar'
 						value={search}
