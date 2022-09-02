@@ -59,6 +59,12 @@ export const Movies: React.FC = () => {
 						value={search}
 						onChange={e => setSearch(e.target.value)}
 					/>
+					
+					<PageMenu 
+						page={page} 
+						setPage={setPage} 
+						totalPages={totalPages} 
+					/>
 
 					<MoviesSection>
 						<ul>
