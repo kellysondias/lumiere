@@ -8,6 +8,7 @@ export class Store {
     }
 
     public movies: IMovies[] = []
+    public search = ''
     public page = 1
 
     async setMovies() {

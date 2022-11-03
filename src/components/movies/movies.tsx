@@ -1,30 +1,26 @@
-import { getMovies, getMovieSearch } from '../../services/endpoints'
-import { useState, useEffect } from 'react'
-import { imgUrl } from '../../services/variables'
-import { Link } from 'react-router-dom'
-import { Footer } from '../footer/footer'
-import { MoviesPage, MoviesSection, MovieCard } from './styles'
-import { IMovies } from '../../interfaces/interfaces'
-import Spinner from 'react-bootstrap/Spinner'
-import '../../css/font-awesome-min.css'
-import { PageMenu } from '../page-menu/page-menu'
-import { useLocalObservable } from 'mobx-react-lite'
-import { Store } from "../../store"
+import { useState, useEffect } from "react";
+import { imgUrl } from "../../services/variables";
+import { Link } from "react-router-dom";
+import { Footer } from "../footer/footer";
+import { MoviesPage, MoviesSection, MovieCard } from "./styles";
+import Spinner from "react-bootstrap/Spinner";
+import "../../css/font-awesome-min.css";
+import { PageMenu } from "../page-menu/page-menu";
+import { useLocalObservable } from "mobx-react-lite";
+import { Store } from "../../store";
 
 export const Movies: React.FC = () => {
-	const store = useLocalObservable(() => new Store());
+  const store = useLocalObservable(() => new Store());
 
-	const [movies, setMovies] = useState<IMovies[]>([])
-	const [loading, setLoading] = useState(true)
-	const [page, setPage] = useState(1)
-	const [totalPages, setTotalPages] = useState(1)
-	const [search, setSearch] = useState('')
+  const [loading, setLoading] = useState(false);
+  const [page, setPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
+  const [search, setSearch] = useState("");
 
-	useEffect(() => {
+  useEffect(() => {
+    store.setMovies();
 
-		store.setMovies()
-
-        /* async function fetchMovies() {
+/*     async function fetchMovies() {
 			const list = await getMovies(page)
 			setMovies(list.results)
 			setLoading(false)
@@ -41,79 +37,68 @@ export const Movies: React.FC = () => {
 		if (search !== '') fetchMovieSearch()
 		
         if(page > totalPages) setPage(1) */
-        
-	}, [store/* page, search */])
+  }, [store /* page, search */]);
 
-	return (
-		<MoviesPage>
-			{loading ? (
-				<Spinner
-					animation='border'
-					role='status'
-					className='spinner'>
-					<span className='visually-hidden'>Loading...</span>
-				</Spinner>
-			) : (
-				<>
-					<h2>Featured Movies:</h2>
+  return (
+    <MoviesPage>
+      {loading ? (
+        <Spinner animation="border" role="status" className="spinner">
+          <span className="visually-hidden">Loading...</span>
+        </Spinner>
+      ) : (
+        <>
+          <h2>Featured Movies:</h2>
 
-					<p>Here you can find all of the movies in our database organized by what's recently trending among movie goers 😉 .</p>
+          <p>
+            Here you can find all of the movies in our database organized by
+            what's recently trending among movie goers 😉 .
+          </p>
 
-					<input
-						type='text'
-						placeholder='Search a movie...'
-						id='search-bar'
-						value={search}
-						onChange={e => setSearch(e.target.value)}
-					/>
-					
-					<PageMenu 
-						page={page} 
-						setPage={setPage} 
-						totalPages={totalPages} 
-					/>
+          <input
+            type="text"
+            placeholder="Search a movie..."
+            id="search-bar"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+          />
 
-					<MoviesSection>
-						<ul>
-							{movies.length === 0 ? (
-								<span className='unfound'>No movies found 😥</span>
-							) : (
-								store.movies.map((movie, index) => (
-									<Link
-										key={index}
-										to={`/movie/${movie.id}`}>
-										<MovieCard>
-											<div>
-												<div>
-													<img
-														src={`${imgUrl}${movie.poster_path}`}
-														alt={`${movie.title}'s poster`}
-													/>
-												</div>
-												<div>
-													<div>
-														<i className='fa-solid fa-star'></i>
-														<span>{movie.vote_average}</span>
-													</div>
-													<span>{movie.title}</span>
-												</div>
-											</div>
-										</MovieCard>
-									</Link>
-								))
-							)}
-						</ul>
-					</MoviesSection>
+          <PageMenu page={page} setPage={setPage} totalPages={totalPages} />
 
-					<PageMenu 
-						page={page} 
-						setPage={setPage} 
-						totalPages={totalPages} 
-					/>
+          <MoviesSection>
+            <ul>
+              {store.movies.length === 0 ? (
+                <span className="unfound">No movies found 😥</span>
+              ) : (
+                store.movies.map((movie, index) => (
+                  <Link key={index} to={`/movie/${movie.id}`}>
+                    <MovieCard>
+                      <div>
+                        <div>
+                          <img
+                            src={`${imgUrl}${movie.poster_path}`}
+                            alt={`${movie.title}'s poster`}
+                          />
+                        </div>
+                        <div>
+                          <div>
+                            <i className="fa-solid fa-star"></i>
+                            <span>{movie.vote_average}</span>
+                          </div>
+                          <span>{movie.title}</span>
+                        </div>
+                      </div>
+                    </MovieCard>
+                  </Link>
+                ))
+              )}
+            </ul>
+          </MoviesSection>
 
-					<Footer />
-				</>
-			)}
-		</MoviesPage>
-	)
-}
+          <PageMenu page={page} setPage={setPage} totalPages={totalPages} />
+
+          <Footer />
+        </>
+      )}
+    </MoviesPage>
+  );
+};
