@@ -1,7 +1,7 @@
-import React from 'react';
-import './App.css';
-import { createGlobalStyle } from 'styled-components';
-import { AppRoutes } from '../src/pages/routes'
+import "./App.css";
+import { createGlobalStyle } from "styled-components";
+import { AppRoutes } from "../src/pages/routes";
+import { Store } from "../src/store";
 
 function App() {
   return (
@@ -49,6 +49,6 @@ const GlobalStyle = createGlobalStyle`
   ol, ul {
     list-style: none;
   }
-`
+`;
 
 export default App;

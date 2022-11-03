@@ -3,6 +3,7 @@ import { baseUrl, key } from "./variables"
 export const getMovies = async (page:number) => {
     const url = await fetch(`${baseUrl}/trending/movie/week?api_key=${key}&page=${page}`)
     const json = await url.json()
+    console.log(json.results)
     return json
 }
 

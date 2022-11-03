@@ -8,8 +8,12 @@ import { IMovies } from '../../interfaces/interfaces'
 import Spinner from 'react-bootstrap/Spinner'
 import '../../css/font-awesome-min.css'
 import { PageMenu } from '../page-menu/page-menu'
+import { useLocalObservable } from 'mobx-react-lite'
+import { Store } from "../../store"
 
 export const Movies: React.FC = () => {
+	const store = useLocalObservable(() => new Store());
+
 	const [movies, setMovies] = useState<IMovies[]>([])
 	const [loading, setLoading] = useState(true)
 	const [page, setPage] = useState(1)
@@ -17,7 +21,10 @@ export const Movies: React.FC = () => {
 	const [search, setSearch] = useState('')
 
 	useEffect(() => {
-        async function fetchMovies() {
+
+		store.setMovies()
+
+        /* async function fetchMovies() {
 			const list = await getMovies(page)
 			setMovies(list.results)
 			setLoading(false)
@@ -33,9 +40,9 @@ export const Movies: React.FC = () => {
 		fetchMovies()
 		if (search !== '') fetchMovieSearch()
 		
-        if(page > totalPages) setPage(1)
+        if(page > totalPages) setPage(1) */
         
-	}, [page, search])
+	}, [store/* page, search */])
 
 	return (
 		<MoviesPage>
@@ -65,7 +72,7 @@ export const Movies: React.FC = () => {
 							{movies.length === 0 ? (
 								<span className='unfound'>No movies found 😥</span>
 							) : (
-								movies.map((movie, index) => (
+								store.movies.map((movie, index) => (
 									<Link
 										key={index}
 										to={`/movie/${movie.id}`}>
