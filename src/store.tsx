@@ -25,7 +25,5 @@ export class Store {
 
     setPage() {
         if (this.page > this.totalPages) this.page = 1
-
-
     }
 }
