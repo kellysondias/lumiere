@@ -1,7 +1,6 @@
 import "./App.css";
 import { createGlobalStyle } from "styled-components";
 import { AppRoutes } from "../src/pages/routes";
-import { Store } from "../src/store";
 
 function App() {
   return (

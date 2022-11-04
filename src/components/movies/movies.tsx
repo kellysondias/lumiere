@@ -7,18 +7,17 @@ import Spinner from "react-bootstrap/Spinner";
 import "../../css/font-awesome-min.css";
 import { PageMenu } from "../page-menu/page-menu";
 import { useLocalObservable, observer } from "mobx-react-lite";
-import { Store } from "../../store";
+import { MoviesStates } from "./movies-states";
 
 export const Movies: React.FC = observer(() => {
-  const store = useLocalObservable(() => new Store());
+  const movieStates = useLocalObservable(() => new MoviesStates());
 
-  const [loading, setLoading] = useState(false);
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
   const [search, setSearch] = useState("");
 
   useEffect(() => {
-    store.fetch();
+    movieStates.fetch();
 
     /*     async function fetchMovies() {
 			const list = await getMovies(page)
@@ -36,14 +35,12 @@ export const Movies: React.FC = observer(() => {
 		fetchMovies()
 		if (search !== '') fetchMovieSearch()
 		
-        if(page > totalPages) setPage(1) */
-  }, [store /* page, search */]);
-
-  console.log("FILMES:", store.movies);
+    if(page > totalPages) setPage(1) */
+  }, [movieStates /* page, search */]);
 
   return (
     <MoviesPage>
-      {loading ? (
+      {movieStates.loading ? (
         <Spinner animation="border" role="status" className="spinner">
           <span className="visually-hidden">Loading...</span>
         </Spinner>
@@ -68,10 +65,10 @@ export const Movies: React.FC = observer(() => {
 
           <MoviesSection>
             <ul>
-              {store.movies.length === 0 ? (
+              {movieStates.movies.length === 0 ? (
                 <span className="unfound">No movies found 😥</span>
               ) : (
-                store.movies.map((movie, index) => (
+                movieStates.movies.map((movie, index) => (
                   <Link key={index} to={`/movie/${movie.id}`}>
                     <MovieCard>
                       <div>
