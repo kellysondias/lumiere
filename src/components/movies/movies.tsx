@@ -19,6 +19,7 @@ export const Movies: React.FC = () => {
 
   useEffect(() => {
     store.setMovies();
+    store.setLoading();
 
 /*     async function fetchMovies() {
 			const list = await getMovies(page)
