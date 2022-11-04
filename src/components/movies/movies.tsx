@@ -18,9 +18,9 @@ export const Movies: React.FC = () => {
   const [search, setSearch] = useState("");
 
   useEffect(() => {
-    store.setMovies();
+    store.fetch();
 
-/*     async function fetchMovies() {
+    /*     async function fetchMovies() {
 			const list = await getMovies(page)
 			setMovies(list.results)
 			setLoading(false)
@@ -39,7 +39,7 @@ export const Movies: React.FC = () => {
         if(page > totalPages) setPage(1) */
   }, [store /* page, search */]);
 
-  console.log("FILMES", store.movies.length)
+  console.log("FILMES:", store.movies);
 
   return (
     <MoviesPage>
@@ -52,8 +52,8 @@ export const Movies: React.FC = () => {
           <h2>Featured Movies:</h2>
 
           <p>
-            Here you can find all the movies in our database organized by
-            what's recently trending among movie goers 😉 .
+            Here you can find all the movies in our database organized by what's
+            recently trending among movie goers 😉 .
           </p>
 
           <input

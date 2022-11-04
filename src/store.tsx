@@ -13,17 +13,28 @@ export class Store {
     public totalPages = 1
     public loading = false
 
-    async setMovies() {
-        const moviesResponse = await getMovies(this.page)
-        this.movies = moviesResponse.results
+    public async setMovies(movies: IMovies[]) {
+        this.movies = movies
+        /* const moviesResponse = await getMovies(this.page)
+        return moviesResponse */
     }
 
-    setLoading() {
-        if (this.movies.length !== 0) this.loading = false
-        return this.loading = true
+    public setLoading(loading: boolean) {
+        this.loading = loading
     }
 
-    setPage() {
-        if (this.page > this.totalPages) this.page = 1
+    public fetch = async () => {
+        if (this.loading) return
+
+        this.loading = true
+
+        try {
+            const moviesResponse = await getMovies(this.page)
+            this.setMovies(moviesResponse)
+        } catch (e) {
+            console.error(e)
+        } finally {
+            this.setLoading(false)
+        }
     }
 }
