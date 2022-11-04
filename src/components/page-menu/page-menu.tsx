@@ -3,18 +3,19 @@ import { Menu } from "./styles"
 
 interface IProps {
 	page: number;
-	setPage: Function;
+	onNextPage: () => Promise<void>;
+	onPreviousPage: () => Promise<void>;
 	totalPages: number;
 }
 
-export const PageMenu:React.FC<IProps> = ({page, setPage, totalPages}) => (
+export const PageMenu:React.FC<IProps> = ({page,  onPreviousPage, onNextPage, totalPages}) => (
     <Menu>
 		<i
-			onClick={() => page > 1 && setPage(page - 1)}
+			onClick={onPreviousPage}
 			className='fa-solid fa-angle-left'></i>
 			<span>{`Page ${page} of ${totalPages}`}</span>
 		<i
-			onClick={() => page < totalPages && setPage(page + 1)}
+			onClick={onNextPage}
 			className='fa-solid fa-angle-right'>
         </i>
 	</Menu>
