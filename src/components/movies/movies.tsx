@@ -6,10 +6,10 @@ import { MoviesPage, MoviesSection, MovieCard } from "./styles";
 import Spinner from "react-bootstrap/Spinner";
 import "../../css/font-awesome-min.css";
 import { PageMenu } from "../page-menu/page-menu";
-import { useLocalObservable } from "mobx-react-lite";
+import { useLocalObservable, observer } from "mobx-react-lite";
 import { Store } from "../../store";
 
-export const Movies: React.FC = () => {
+export const Movies: React.FC = observer(() => {
   const store = useLocalObservable(() => new Store());
 
   const [loading, setLoading] = useState(false);
@@ -103,4 +103,4 @@ export const Movies: React.FC = () => {
       )}
     </MoviesPage>
   );
-};
+});
