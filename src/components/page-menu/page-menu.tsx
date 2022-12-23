@@ -12,7 +12,7 @@ export const PageMenu:React.FC<IProps> = ({page, setPage, totalPages}) => (
 		<i
 			onClick={() => page > 1 && setPage(page - 1)}
 			className='fa-solid fa-angle-left'></i>
-			<span>{`Page ${page} of ${totalPages}`}</span>
+			<span>{`Page ${page}`}</span>
 		<i
 			onClick={() => page < totalPages && setPage(page + 1)}
 			className='fa-solid fa-angle-right'>

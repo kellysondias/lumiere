@@ -64,7 +64,7 @@ export const Movie:React.FC = () => {
         
                                         <div className="rate">
                                             <i className='fa-solid fa-star'></i>
-                                            <span>{movie.rate}</span>
+                                            <span>{movie.rate.toFixed(1)}</span>
                                         </div>
                                     </header>
     

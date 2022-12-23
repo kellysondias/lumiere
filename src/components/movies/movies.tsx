@@ -80,7 +80,7 @@ export const Movies: React.FC = () => {
 												<div>
 													<div>
 														<i className='fa-solid fa-star'></i>
-														<span>{movie.vote_average}</span>
+														<span>{movie.vote_average.toFixed(1)}</span>
 													</div>
 													<span>{movie.title}</span>
 												</div>
