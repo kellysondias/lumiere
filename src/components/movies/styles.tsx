@@ -100,7 +100,7 @@ export const MovieCard = styled.li`
     }
 
     div div:last-child span {
-        font-size: 1.6rem;
+        font-size: 0.8rem;
     }
 
     @media (max-width: 375px) {

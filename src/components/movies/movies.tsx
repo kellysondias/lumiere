@@ -68,7 +68,12 @@ export const Movies: React.FC = () => {
 								movies.map((movie, index) => (
 									<Link
 										key={index}
-										to={`/movie/${movie.id}`}>
+										to={`/movie/${movie.id}`}
+										style={{
+											width:"200px",
+											margin:"0 0.5rem"
+										}}
+									>
 										<MovieCard>
 											<div>
 												<div>
